@@ -1,0 +1,101 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #fff;
+  padding: 1em 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation-name: navFadeIn;
+  animation-duration: 1s;
+  box-shadow: -2px -2px 20px #ccc;
+  
+}
+
+nav .logo {
+  width: 150px;
+}
+
+.navbar-menu {
+  list-style: none;
+}
+
+.navbar-menu li {
+  display: inline-block;
+  padding: 0 1em;
+}
+
+.navbar-menu a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #111;
+  position: relative;
+}
+
+.navbar-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  background-color: red;
+  width: 100%;
+  height: 3px;
+  transform-origin: left center;
+  transform: scale(0);
+  transition: .3s;
+  border-radius: 5px;
+}
+
+.navbar-menu a.active::before {
+  transform: scale(1);
+}
+
+.navbar-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navbar-right img {
+  cursor: pointer;
+}
+
+.navbar-right .btn {
+  text-decoration: none;
+  border: 2px dashed #ccc;
+  background-color: transparent;
+  color: #777;
+  font-weight: 600;
+  font-size: 15px;
+  padding: .5em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar-right .basket-icon {
+  position: relative;
+}
+
+.basket-icon .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: tomato;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+}
+
+@keyframes navFadeIn {
+  0%{
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

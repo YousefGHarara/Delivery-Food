@@ -10,7 +10,6 @@ nav {
   animation-name: navFadeIn;
   animation-duration: 1s;
   box-shadow: -2px -2px 20px #ccc;
-  
 }
 
 nav .logo {
@@ -34,7 +33,7 @@ nav .logo {
 }
 
 .navbar-menu a::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -43,7 +42,7 @@ nav .logo {
   height: 3px;
   transform-origin: left center;
   transform: scale(0);
-  transition: .3s;
+  transition: 0.3s;
   border-radius: 5px;
 }
 
@@ -68,7 +67,7 @@ nav .logo {
   color: #777;
   font-weight: 600;
   font-size: 15px;
-  padding: .5em 1.5em;
+  padding: 0.5em 1.5em;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -85,17 +84,82 @@ nav .logo {
   position: absolute;
   top: -5px;
   right: -5px;
-
 }
 
 @keyframes navFadeIn {
-  0%{
+  0% {
     opacity: 0;
     transform: translateY(-30px);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 1000px) {
+  nav .logo {
+    width: 140px;
+  }
+
+  .navbar-menu li {
+    padding: 0 0.7em;
+    font-size: 17px;
+  }
+
+  .navbar-right {
+    gap: 30px;
+  }
+
+  .navbar-right img {
+    width: 22px;
+  }
+
+  .navbar-right .btn {
+    padding: 0.3em 1.2em;
+  }
+}
+
+@media (max-width: 900px) {
+  nav .logo {
+    width: 120px;
+  }
+
+  .navbar-menu li {
+    padding: 0 0.7em;
+    font-size: 15px;
+  }
+
+  .navbar-right {
+    gap: 30px;
+  }
+
+  .navbar-right img {
+    width: 20px;
+  }
+
+  .navbar-right .btn {
+    padding: 0.3em 1.2em;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .navbar-menu {
+    display: none;
+  }
+
+
+}
+
+
+@media (max-width: 450px) {
+  .navbar-right img {
+    display: none;
+  }
+  .basket-icon .dot {
+    display: none;
   }
 }

@@ -1,33 +1,67 @@
 import "./navbar.css";
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../../assets/frontend_assets/assets";
 import { Link, NavLink } from "react-router-dom";
+import { useFood } from "../../Context/FoodContext";
 
-const Navbar = () => {
+const Navbar = ({loginModel, setLoginModel}) => {
+  const [isActive, setIsActive] = useState("home");
+  const {totalCount} = useFood()
+ 
   return (
     <nav>
-      <Link to={"/"}><img className="logo" src={assets.logo} alt="" /></Link>
+      <Link to={"/#"}>
+        <img className="logo" src={assets.logo} alt="" />
+      </Link>
       <ul className="navbar-menu">
         <li>
-          <NavLink to={"/home"}>home</NavLink>
+          <a
+            href={"/#"}
+            onClick={() => setIsActive("home")}
+            className={isActive === "home" ? "active" : ""}
+          >
+            home
+          </a>
         </li>
         <li>
-          <NavLink to={"/menu"}>menu</NavLink>
+          <a
+            href={"/#menu"}
+            onClick={() => setIsActive("menu")}
+            className={isActive === "menu" ? "active" : ""}
+          >
+            menu
+          </a>
         </li>
         <li>
-          <NavLink to={"/mobile-app"}>mobile-app</NavLink>
+          <a
+            href={"/#mobile-app"}
+            onClick={() => setIsActive("mobile-app")}
+            className={isActive === "mobile-app" ? "active" : ""}
+          >
+            mobile-app
+          </a>
         </li>
         <li>
-          <NavLink to={"/contact"}>contact us</NavLink>
+          <a
+            href={"#footer"}
+            onClick={() => setIsActive("contact-us")}
+            className={isActive === "contact-us" ? "active" : ""}
+          >
+            contact us
+          </a>
         </li>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="basket-icon">
-          <Link to={"/basket"}><img src={assets.basket_icon} alt="" /></Link>
-          <div className="dot"></div>
+          <Link to={"/basket"}>
+            <Link to={"/cart"}><img src={assets.basket_icon} alt="" /></Link>
+          </Link>
+          <div className={totalCount() > 0 ? "dot" : ""}></div>
         </div>
-        <Link to={'/sign-in'} className="btn">Sign in</Link>
+        <Link to={""} onClick={() => setLoginModel(true)} className="btn">
+          Sign in
+        </Link>
       </div>
     </nav>
   );

@@ -7,7 +7,7 @@ const ExploreMenu = () => {
   const { category, setCategory } = useFood();
 
   return (
-    <div className="explore-menu">
+    <div className="explore-menu" id="menu">
       <h1>Explore our menu</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus

@@ -1,7 +1,7 @@
 header {
   height: 33vw;
   position: relative;
-  background: url('../../../public/header_img.png') no-repeat;
+  background: url("../../../public/header_img.png") no-repeat;
   background-size: contain;
   /* width: 80%; */
   margin: 30px auto;
@@ -15,7 +15,7 @@ header {
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
   align-items: start;
   animation-name: fadeIn;
   animation-duration: 3s;
@@ -23,16 +23,16 @@ header {
 
 .header-content h2 {
   font-weight: 500;
-  font-size: max(22px, 3vw);
+  font-size: 3vw;
   line-height: 1.3;
 }
 
 .header-content p {
-  font-size: 1vw  ;
+  font-size: 1vw;
 }
 
 .header-content button {
-  padding: .8em 2em;
+  padding: 0.8em 2em;
   border: 2px solid #fff;
   border-radius: 50px;
   cursor: pointer;
@@ -40,4 +40,63 @@ header {
   font-size: 1em;
   background-color: #fff;
   color: tomato;
+}
+
+@media (max-width: 1200px) {
+  .header-content button {
+    padding: 0.5em 1.7em;
+    font-size: .8em;
+  }
+}
+@media (max-width: 1000px) {
+  
+  .header-content {
+    gap: 1em;
+    left: 7%;
+  }
+  header {
+    height: 40vw;
+  }
+
+
+  .header-content h2 {
+    font-size: 4vw;
+  }
+
+  
+.header-content p {
+  font-size: 1.4vw;
+}
+
+}
+
+@media (max-width: 850px) {
+  .header-content {
+    max-width: 55%;
+  }
+
+  .header-content p {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .header-content h2 {
+    font-size: 18px;
+  }
+  .header-content button {
+    padding: 0.5em 1.2em;
+    font-size: 13px;
+  }
+
+  .header-content {
+    left: 50%;
+    top: 50%;
+    bottom: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    text-align: center;
+  }
 }

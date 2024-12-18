@@ -13,17 +13,15 @@ const FoodDisplay = () => {
       <h2>Top disahes near you</h2>
       <div className="food-display-list">
 
+        
+        {/* category(cake) === 'all' or (cake) === 'salad' -> false
+        category(cake) === 'all' or (cake) === 'deserts' -> false
+        category(cake) === 'all' or (cake) === 'sandwich' -> false
+        category(cake) === 'all' or (cake) === 'cake' -> true */}
         {food_list.map((item, index) => {
-          {console.log(category, " || ", item.category);}
-          /*
-          category(cake) === 'all' or (cake) === 'salad' -> false
-          category(cake) === 'all' or (cake) === 'deserts' -> false
-          category(cake) === 'all' or (cake) === 'sandwich' -> false
-          category(cake) === 'all' or (cake) === 'cake' -> true
-           */
           if(category === "All" || category === item.category) {
             return <FoodItem key={index} item={item} />;
-          }
+          }return <></>
         })}
 
         {/* {category !== "All"

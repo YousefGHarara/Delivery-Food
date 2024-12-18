@@ -4,19 +4,21 @@ import Home from "./Pages/Home/home";
 import Cart from "./Pages/Cart/cart";
 import PlaceOrder from "./Pages/PlaceOrder/placeOrder";
 import Footer from "./Components/Footer/footer";
+import { useState } from "react";
+import LoginPopup from "./Components/LoginPopup/loginPopup";
 
 function App() {
+  const [loginModel, setLoginModel] = useState(false);
+
   return (
     <div className="App">
-      <Navbar />
-      
+      {loginModel ? <LoginPopup loginModel={loginModel} setLoginModel={setLoginModel} /> : <></>}
+      <Navbar loginModel={loginModel} setLoginModel={setLoginModel} />
+
       <Routes>
-        <Route path="/home" element={<Home />}/>
-        <Route path="/menu" element={<Home />}/>
-        <Route path="/mobile-app" element={<Home />}/>
-        <Route path="/contact" element={<Home />}/>
-        <Route path="/cart" element={<Cart />}/>
-        <Route path="/place-order" element={<PlaceOrder />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/order" element={<PlaceOrder />} />
       </Routes>
       <Footer />
     </div>

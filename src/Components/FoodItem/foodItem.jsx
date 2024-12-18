@@ -7,46 +7,46 @@ const FoodItem = ({ item }) => {
   const { _id, name, image, price, description } = item;
   const { items, dispatch, addToData, removeFromData, data } = useFood();
 
-  const handleAddToCart = (product) => {
-    const isExists = items.cartItems.find((item) => item._id === product._id);
-    if (!isExists) {
-      dispatch({
-        type: "add_to_cart",
-        payload: { ...product, quantity: 1, total: product.price },
-      });
-    } else {
-      dispatch({
-        type: "update_quantity",
-        payload: {
-          id: isExists._id,
-          quantity: isExists.quantity + 1,
-          total: isExists.price * isExists.quantity,
-        },
-      });
-    }
-  };
+  // const handleAddToCart = (product) => {
+  //   const isExists = items.cartItems.find((item) => item._id === product._id);
+  //   if (!isExists) {
+  //     dispatch({
+  //       type: "add_to_cart",
+  //       payload: { ...product, quantity: 1, total: product.price },
+  //     });
+  //   } else {
+  //     dispatch({
+  //       type: "update_quantity",
+  //       payload: {
+  //         id: isExists._id,
+  //         quantity: isExists.quantity + 1,
+  //         total: isExists.price * isExists.quantity,
+  //       },
+  //     });
+  //   }
+  // };
 
-  const updateQuantity = (id, quantity, price) => {
-    if (quantity <= 0) {
-      dispatch({ type: "remove_from_cart", payload: { id: id } });
-    } else {
-      dispatch({
-        type: "update_quantity",
-        payload: {
-          id: id,
-          quantity: quantity,
-          total: price * quantity,
-        },
-      });
-    }
-  };
+  // const updateQuantity = (id, quantity, price) => {
+  //   if (quantity <= 0) {
+  //     dispatch({ type: "remove_from_cart", payload: { id: id } });
+  //   } else {
+  //     dispatch({
+  //       type: "update_quantity",
+  //       payload: {
+  //         id: id,
+  //         quantity: quantity,
+  //         total: price * quantity,
+  //       },
+  //     });
+  //   }
+  // };
 
   return (
     <div className="food-item" key={_id}>
       <div className="food-item-img-container">
         <img src={image} alt="" />
 
-        {items.cartItems.find((item) => item._id === _id) ? (
+        {/* {items.cartItems.find((item) => item._id === _id) ? (
           items.cartItems.map((item) => {
             if (item._id === _id) {
               return (
@@ -91,10 +91,10 @@ const FoodItem = ({ item }) => {
             src={assets.add_icon_white}
             alt=""
           />
-        )}
+        )} */}
 
 
-        {/* {data[Number(_id)] > 0 ? (
+        {data[Number(_id)] > 0 ? (
           
           <div className="food-item-counter">
             <img
@@ -124,7 +124,7 @@ const FoodItem = ({ item }) => {
             src={assets.add_icon_white}
             alt=""
           />
-        )} */}
+        )}
 
       </div>
       <div className="food-item-info">

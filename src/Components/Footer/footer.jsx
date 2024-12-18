@@ -20,7 +20,7 @@ const Footer = () => {
 
 
   return (
-    <footer>
+    <footer id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
           <img src={assets.logo} alt="" />

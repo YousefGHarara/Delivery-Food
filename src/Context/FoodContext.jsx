@@ -4,6 +4,7 @@ import { food_list } from "../assets/frontend_assets/assets";
 const FoodContext = createContext(null);
 
 let defaultData = {};
+const DELIVERY_FEE = 2;
 
 for(let i = 0; i < food_list.length; i++) {
   defaultData = {
@@ -92,6 +93,17 @@ const FoodContextProvider = ({ children }) => {
     }
   };
 
+  const totalCount = () => {
+    let total = 0;
+    for(const obj in data) {
+      if(data[obj] > 0) {
+        let itemInfo = food_list.find((item) => item._id === obj);
+        total += itemInfo.price * data[obj];
+      }
+    }
+    return total;
+  }
+
   const [items, dispatch] = useReducer(foodReducer, initailValue);
 
   const value = {
@@ -103,7 +115,9 @@ const FoodContextProvider = ({ children }) => {
     data,
     setData,
     addToData,
-    removeFromData
+    removeFromData,
+    totalCount,
+    DELIVERY_FEE
   };
 
   return <FoodContext.Provider value={value}>{children}</FoodContext.Provider>;

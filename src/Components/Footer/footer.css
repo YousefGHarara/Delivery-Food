@@ -50,3 +50,19 @@ footer hr {
   border-radius: 4px;
   width: 100%;
 }
+
+@media (max-width: 950px) {
+  footer {
+    padding: 4em 3em 2em 3em;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 20px;
+    /* justify-items: center;
+    text-align: center; */
+
+  }
+
+
+}
